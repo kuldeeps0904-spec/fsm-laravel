@@ -190,7 +190,26 @@ Visit:
 http://127.0.0.1:8000
 ```
 
+------
+
+## 🔑 Demo Login Credentials
+
+For testing and demonstration purposes, use the following default accounts:
+
+### 👨‍💼 Admin Account
+- **Email:** admin@fsm.com  
+- **Password:** password  
+
+### 👷 Technician Account
+- **Email:** tech@fsm.com  
+- **Password:** password  
+
+> ⚠️ Note: These credentials are for development/demo use only.  
+> It is strongly recommended to change default passwords in production environments.
+
 ---
+
+
 
 ## 📌 Future Improvements
 
