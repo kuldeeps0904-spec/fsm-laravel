@@ -207,7 +207,7 @@ http://127.0.0.1:8000
 
 Kuldeep Shrivastav  
 
-Full-stack Laravel project demonstrating scalable field service architecture, performance optimization, and business-driven workflow design.
+Full-Stack Developer (Laravel | Flutter)
 
 ---
 
