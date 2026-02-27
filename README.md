@@ -6,6 +6,32 @@ This system digitizes the complete lifecycle of service operations — from job 
 
 ---
 
+## 📸 Application Screenshots
+
+### 1️⃣ Admin Dashboard
+Displays priority-based job listing with intelligent sorting.
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### 2️⃣ Job Details & Resource Logging
+Track service charges, chemicals, equipment, and upload before/after evidence.
+![Job Details](screenshots/job-details.png)
+
+---
+
+### 3️⃣ Geo-Tagged Map View
+Interactive job location tracking using Leaflet.js and OpenStreetMap.
+![Map View](screenshots/map-view.png)
+
+---
+
+### 4️⃣ Generated PDF Invoice
+Automatically calculated totals with professional PDF formatting.
+![Invoice PDF](screenshots/invoice-pdf.png)
+
+---
+
 ## 🌟 Project Overview
 
 The FSM application streamlines field operations by providing:
