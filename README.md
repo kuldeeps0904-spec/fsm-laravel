@@ -1,59 +1,191 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚀 Field Service Management System (FSM)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A professional Field Service Management (FSM) web application built using Laravel 12 and PHP 8.
 
-## About Laravel
+This system digitizes the complete lifecycle of service operations — from job creation and technician assignment to resource tracking and automated invoice generation.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌟 Project Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The FSM application streamlines field operations by providing:
 
-## Learning Laravel
+- Client & Job Management
+- Smart Job Numbering (JOB-YYYY-XXX format)
+- Technician Assignment & Role Control
+- Resource & Service Charge Tracking
+- Before/After Evidence Uploads
+- Priority-Based Dashboard Sorting
+- Geo-Tagged Job Locations (Leaflet + OpenStreetMap)
+- Automated PDF Invoice Generation
+- Invoice Sync Warning System
+- Role-Based Access Control (Admin / Technician)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🏗️ Technical Stack
 
-## Laravel Sponsors
+### Backend
+- Laravel 12
+- PHP 8.4+
+- Eloquent ORM
+- Laravel Breeze (Authentication)
+- Spatie Laravel Permission (RBAC)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Frontend
+- Blade Templating Engine
+- Bootstrap 5
+- Vite
+- Leaflet.js (Maps)
 
-### Premium Partners
+### Database
+- SQLite (Development)
+- Easily portable to MySQL / PostgreSQL
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### Media & Documents
+- Laravel Filesystem (Local Storage)
+- DomPDF (Invoice PDF generation)
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🔐 Role-Based Access Control (RBAC)
 
-## Code of Conduct
+### Admin
+- Full access to Clients, Jobs, Technicians
+- Create / Update Invoices
+- Manage service charges & resources
+- View system-wide dashboard
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Technician
+- View assigned jobs only
+- Update job status
+- Upload before/after images
+- Log service charges & resources
 
-## Security Vulnerabilities
+Access is enforced using middleware, role checks, and permission-based authorization.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 🔢 Smart Job Numbering
 
+Each job is automatically assigned a sequential ID:
+
+```
+JOB-2026-001
+JOB-2026-002
+```
+
+The numbering:
+- Resets each year
+- Is generated automatically during job creation
+- Uses a Laravel Model Observer
+
+---
+
+## 📊 Intelligent Dashboard Sorting
+
+Jobs are dynamically sorted based on business priority:
+
+1. Active jobs (Pending / In Progress first)
+2. Urgency level (Urgent > High > Medium > Low)
+3. Scheduled date
+4. Completed / Cancelled jobs moved to bottom
+
+This ensures high-visibility for urgent tasks.
+
+---
+
+## 💰 Dynamic Invoicing System
+
+- Invoice totals are calculated from logged service charges
+- Snapshot-based sync detection system
+- Alerts when job costs change after invoice generation
+- Allows regeneration of invoices
+- Professionally formatted PDF output using DomPDF
+
+---
+
+## ⚡ Performance Optimization
+
+- Eager Loading to prevent N+1 query issues
+- Relational database schema
+- Clean MVC architecture
+- Scalable for large datasets
+
+---
+
+## 🗺️ Geo-Tagging Integration
+
+Integrated Leaflet.js with OpenStreetMap to:
+
+- Display job locations interactively
+- Avoid API billing costs
+- Provide map support without API keys
+
+---
+
+## 🛠️ Installation Guide
+
+Clone the repository:
+
+```bash
+git clone https://github.com/kuldeeps0904-spec/fsm-laravel.git
+cd fsm-laravel
+```
+
+Install dependencies:
+
+```bash
+composer install
+```
+
+Setup environment:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Run migrations:
+
+```bash
+php artisan migrate
+```
+
+Start the development server:
+
+```bash
+php artisan serve
+```
+
+Visit:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 📌 Future Improvements
+
+- Queue-based invoice generation
+- Cloud storage integration (AWS S3)
+- API layer for mobile app integration
+- Real-time technician tracking
+- Analytics dashboard
+- Concurrency-safe job numbering
+
+---
+
+## 👨‍💻 Author
+
+Kuldeep Shrivastav  
+
+Full-stack Laravel project demonstrating scalable field service architecture, performance optimization, and business-driven workflow design.
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
